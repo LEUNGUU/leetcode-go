@@ -10,15 +10,3 @@ func TestSortedSquares(t *testing.T) {
 		t.Fatalf("testing sorted squares with %v, want: %v, but return: %v", nums, want, res)
 	}
 }
-
-func Equal(a, b []int) bool {
-	if len(a) != len(b) {
-		return false
-	}
-	for idx, val := range a {
-		if val != b[idx] {
-			return false
-		}
-	}
-	return true
-}
