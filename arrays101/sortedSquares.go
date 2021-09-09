@@ -1,17 +1,21 @@
 package arrays101
 
+import "math"
+
 func sortedSquares(nums []int) []int {
-	var square_nums []int
-	for _, num := range nums {
-		square_nums = append(square_nums, num*num)
-	}
-	for i, j := 0, len(square_nums)-1; j == i; {
-		if square_nums[j] < square_nums[i] {
-			square_nums[i], square_nums[j] = square_nums[j], square_nums[i]
-			j -= 1
+	var res []int
+	for left, right := 0, len(nums)-1; left <= right; {
+		if math.Abs(float64(nums[left])) >= math.Abs(float64(nums[right])) {
+			res = append(res, nums[left]*nums[left])
+			left += 1
 		} else {
-			j -= 1
+			res = append(res, nums[right]*nums[right])
+			right -= 1
 		}
 	}
-	return square_nums
+	length := len(res) - 1
+	for idx := 0; idx <= length/2; idx++ {
+		res[idx], res[length-idx] = res[length-idx], res[idx]
+	}
+	return res
 }
