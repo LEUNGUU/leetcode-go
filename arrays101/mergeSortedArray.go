@@ -1,26 +1,25 @@
 package arrays101
 
 func merge(nums1 []int, m int, nums2 []int, n int) {
-	var res []int
-	i, j := 0, 0
+	i, j, p := m-1, n-1, m+n-1
 	for {
-		if i <= m && j <= n {
+		if i >= 0 && j >= 0 {
 			if nums1[i] <= nums2[j] {
-				res = append(res, nums1[i])
-				i++
+				nums1[p] = nums2[j]
+				j--
+				p--
 			} else {
-				res = append(res, nums2[j])
-				j++
+				nums1[p], nums1[i] = nums1[i], 0
+				i--
+				p--
 			}
 		} else {
 			break
 		}
 	}
-	if i < m {
-		res = append(res, nums1[i:]...)
+	if j >= 0 {
+		for idx := 0; idx <= j; idx++ {
+			nums1[idx] = nums2[idx]
+		}
 	}
-	if j < n {
-		res = append(res, nums2[j:]...)
-	}
-	nums1 = res
 }
