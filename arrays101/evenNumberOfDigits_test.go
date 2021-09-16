@@ -6,14 +6,13 @@ import (
 	"testing"
 )
 
-var tc_set = map[string][]int{
-	"tc1_3": {12, 345, 11, 1212},
-	"tc2_1": {12, 111, 222},
-	"tc3_1": {1212},
-	"tc4_0": {2121211},
-}
-
 func TestEvenDigit(t *testing.T) {
+	var tc_set = map[string][]int{
+		"tc1_3": {12, 345, 11, 1212},
+		"tc2_1": {12, 111, 222},
+		"tc3_1": {1212},
+		"tc4_0": {2121211},
+	}
 	for k, v := range tc_set {
 		want, _ := strconv.Atoi(strings.Split(k, "_")[1])
 		res := findNumbers(v)

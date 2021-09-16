@@ -8,7 +8,7 @@ func duplicateZeros(arr []int) {
 			// discard the last element
 			arr = arr[:len(arr)-1]
 			// insert a zero
-			var tmp []int = append(arr[:idx], 0)
+			var tmp = append(arr[:idx], 0)
 			// concat them
 			arr = append(tmp, arr[idx:]...)
 			// skip the inserted one
