@@ -1,7 +1,7 @@
 package data_structure1
 
 func maxSubArray(nums []int) int {
-	max_sum = nums[0]
+	max_sum := nums[0]
 	for i := 1; i < len(nums); i++ {
 		if nums[i-1] > 0 {
 			nums[i] += nums[i-1]
